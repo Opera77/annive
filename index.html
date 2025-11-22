@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joyeux Anniversaire Blessing Katala</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  </head>
+<body>
+  <div id="heart-container"></div>
+  <header id="hero" class="section">
+    <div class="hero-inner glass">
+      <h1>Joyeux Anniversaire <span class="special-name">Blessing Katala</span> ❤️</h1>
+      <p class="subtitle">Que cette journée soit douce, lumineuse et remplie d’amour.</p>
+      <p class="wish">En ce 24 novembre, que ton cœur soit comblé de bonheur, de douceur et de lumière. Joyeux anniversaire, Blessing.</p>
+      <div class="cake-wrap">
+        <svg id="cake" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" aria-label="Gâteau d’anniversaire">
+          <defs>
+            <linearGradient id="icing" x1="0" x2="1">
+              <stop offset="0%" stop-color="#ffd9e3"/>
+              <stop offset="100%" stop-color="#f7c5d0"/>
+            </linearGradient>
+            <linearGradient id="cakeBody" x1="0" x2="1">
+              <stop offset="0%" stop-color="#f3b8c6"/>
+              <stop offset="100%" stop-color="#eaa1b4"/>
+            </linearGradient>
+            <radialGradient id="flameGlow" cx="50%" cy="50%" r="0.8">
+              <stop offset="0%" stop-color="#ffb347" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#ffb347" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="plate" x1="0" x2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#f3f3f3"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="150" cy="196" rx="108" ry="12" fill="#d9c9ce" opacity="0.35" />
+          <ellipse cx="150" cy="190" rx="110" ry="16" fill="url(#plate)" opacity="0.95" />
+          <rect x="60" y="90" width="180" height="90" rx="18" fill="url(#cakeBody)" />
+          <path id="icingTop" d="M60 100 C85 120, 95 110, 120 100 C140 120, 160 110, 180 100 C200 120, 220 110, 240 100" fill="url(#icing)" />
+          <path d="M75 115 C80 130, 85 130, 90 120" fill="url(#icing)" />
+          <path d="M130 115 C135 132, 140 132, 145 120" fill="url(#icing)" />
+          <path d="M190 115 C195 130, 200 130, 205 118" fill="url(#icing)" />
+          <rect x="95" y="40" width="110" height="50" rx="14" fill="url(#cakeBody)" />
+          <ellipse cx="150" cy="40" rx="55" ry="14" fill="url(#icing)" />
+          <circle cx="95" cy="94" r="4" fill="#ff9eb5" />
+          <circle cx="150" cy="92" r="4" fill="#ff9eb5" />
+          <circle cx="205" cy="94" r="4" fill="#ff9eb5" />
+          <rect x="95" y="60" width="10" height="30" fill="#ffd1dc" />
+          <rect x="145" y="60" width="10" height="30" fill="#ffd1dc" />
+          <rect x="195" y="60" width="10" height="30" fill="#ffd1dc" />
+          <rect x="98" y="60" width="2" height="30" fill="#f3a1b5" />
+          <rect x="148" y="60" width="2" height="30" fill="#f3a1b5" />
+          <rect x="198" y="60" width="2" height="30" fill="#f3a1b5" />
+          <g id="flames">
+            <circle id="flame1" cx="100" cy="58" r="6" fill="#ffb347" />
+            <circle id="flame2" cx="150" cy="58" r="6" fill="#ffb347" />
+            <circle id="flame3" cx="200" cy="58" r="6" fill="#ffb347" />
+            <circle cx="100" cy="58" r="16" fill="url(#flameGlow)" />
+            <circle cx="150" cy="58" r="16" fill="url(#flameGlow)" />
+            <circle cx="200" cy="58" r="16" fill="url(#flameGlow)" />
+          </g>
+          <g id="smoke" opacity="0"></g>
+          <g id="sprinkles">
+            <rect x="78" y="105" width="6" height="3" fill="#e3c36f" transform="rotate(12 78 105)"/>
+            <rect x="122" y="108" width="6" height="3" fill="#ff9eb5" transform="rotate(-8 122 108)"/>
+            <rect x="165" y="106" width="6" height="3" fill="#d996c0" transform="rotate(6 165 106)"/>
+            <rect x="205" y="107" width="6" height="3" fill="#e3c36f" transform="rotate(-10 205 107)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="hero-actions">
+        <button id="blow-btn" class="sound-btn">Souffler les bougies</button>
+        <button id="night-toggle" class="sound-btn">Mode nuit</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="initials" class="section fade-section">
+      <div class="container">
+        <div class="initials-wrap glass">
+          <div id="initials-orbit"></div>
+          <div class="initial-letter">S</div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="section fade-section">
+      <div class="container glass">
+        <h2>À propos de Blessing</h2>
+        <p>
+          Tu illumines le monde par ta douceur et ta force. En ce 24 novembre, nous célébrons ton sourire,
+          ta gentillesse et la joie que tu apportes à ceux qui t’entourent.
+        </p>
+      </div>
+    </section>
+
+    <section id="carousel-section" class="section fade-section">
+      <div class="container">
+        <h2>Paroles Romantiques</h2>
+        <div class="carousel glass">
+          <button class="nav prev" id="prev" aria-label="Précédent">‹</button>
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carousel-track"></div>
+          </div>
+          <button class="nav next" id="next" aria-label="Suivant">›</button>
+          <div class="dots" id="dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="memories" class="section fade-section">
+      <div class="container">
+        <h2>Souvenirs</h2>
+        <div class="memories-grid">
+          <div class="memory-card glass">
+            <figure>
+              <img src="https://picsum.photos/id/1003/800/1000.jpg" alt="Souvenir" />
+            </figure>
+            <div class="memory-caption">
+              <h3>Premier sourire</h3>
+              <p>Le temps s’est arrêté, et le jour est devenu plus doux.</p>
+            </div>
+          </div>
+          <div class="memory-card glass">
+            <figure>
+              <img src="https://picsum.photos/id/1011/800/1000.jpg" alt="Souvenir" />
+            </figure>
+            <div class="memory-caption">
+              <h3>Promenade au soleil</h3>
+              <p>Chaque pas écrivait une poésie que nos cœurs lisaient.</p>
+            </div>
+          </div>
+          <div class="memory-card glass">
+            <figure>
+              <img src="https://picsum.photos/id/1021/800/1000.jpg" alt="Souvenir" />
+            </figure>
+            <div class="memory-caption">
+              <h3>Regard du soir</h3>
+              <p>Dans tes yeux, les étoiles ont trouvé leur maison.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="qualities" class="section fade-section">
+      <div class="container glass">
+        <h2>Qualités de Blessing</h2>
+        <div class="chips">
+          <span class="chip">Douceur</span>
+          <span class="chip">Élégance</span>
+          <span class="chip">Lumière</span>
+          <span class="chip">Bonté</span>
+          <span class="chip">Sincérité</span>
+          <span class="chip">Grâce</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="section fade-section">
+      <div class="container glass">
+        <p class="quote">« Auprès de toi, chaque instant devient une fête, chaque souffle une douceur. »</p>
+      </div>
+    </section>
+
+    <section id="final" class="section fade-section">
+      <div class="container glass">
+        <h2>Message final</h2>
+        <p id="final-message"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner glass">
+      <div class="footer-brand">
+        <span class="footer-heart">❤</span>
+        <span>Créé avec amour pour Blessing Katala — 24 Novembre</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
