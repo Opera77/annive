@@ -1,6 +1,6 @@
 gsap.registerPlugin(ScrollTrigger)
 
-const finalMessageText = "Avec toi, tout paraît plus beau. Que ce jour t’apporte douceur, joie et mille sourires. Joyeux anniversaire, Blessing."
+const finalMessageText = "Avec toi, tout paraît plus beau. Que ce jour t’apporte douceur, joie et mille sourires. Joyeux anniversaire S❤️"
 
 document.getElementById("final-message").innerHTML = ""
   .concat(...finalMessageText.split(""))
@@ -11,7 +11,13 @@ gsap.from("#cake", { duration: 1.2, y: -180, opacity: 0, ease: "bounce.out" })
 gsap.to("#cake", { y: -3, duration: 2.6, yoyo: true, repeat: -1, ease: "sine.inOut" })
 gsap.to("#icingTop", { duration: 3.2, yoyo: true, repeat: -1, opacity: 0.96 })
 const flames = ["#flame1", "#flame2", "#flame3"]
-gsap.to(flames, { duration: 0.6, scale: () => 1 + Math.random() * 0.18, opacity: () => 0.85 + Math.random() * 0.15, transformOrigin: "50% 50%", repeat: -1, yoyo: true, stagger: 0.12, ease: "sine.inOut", repeatRefresh: true })
+function startFlamesFlicker() {
+  gsap.to(flames, { duration: 0.6, scale: () => 1 + Math.random() * 0.18, opacity: () => 0.85 + Math.random() * 0.15, transformOrigin: "50% 50%", repeat: -1, yoyo: true, stagger: 0.12, ease: "sine.inOut", repeatRefresh: true })
+}
+function stopFlamesFlicker() {
+  gsap.killTweensOf(flames)
+}
+startFlamesFlicker()
 
 document.querySelectorAll(".fade-section .glass, .fade-section .container").forEach(el => {
   gsap.from(el, {
@@ -56,16 +62,16 @@ gsap.from("#final .char", {
 })
 
 const carouselSlides = [
-  { text: "Ta lumière rend chaque jour plus doux.", lyrics: "Dans tes yeux, le matin danse, et nos rêves se tiennent la main." },
-  { text: "Avec toi, tout devient plus beau.", lyrics: "Chaque souffle murmure ton nom, comme une poésie qui ne finit jamais." },
-  { text: "Ton sourire est ma plus belle habitude.", lyrics: "Il éclaire les heures, et apaise les jours trop longs." },
-  { text: "Chaque instant à tes côtés est un cadeau.", lyrics: "Un battement de cœur à partager, une douceur à préserver." },
-  { text: "Aujourd’hui, nous célébrons la merveille que tu es.", lyrics: "Que cette lumière te porte, et que l’amour te couvre." },
-  { text: "Ta voix apaise et rassure.", lyrics: "Comme une brise tendre qui berce le cœur." },
-  { text: "Tu es mon miracle quotidien.", lyrics: "Une douce évidence, un soleil qui ne s’éteint pas." },
-  { text: "Ta présence rend tout plus léger.", lyrics: "Même le silence fleurit quand tu souris." },
-  { text: "Ton élégance est une poésie.", lyrics: "Chaque geste dessine un vers, chaque regard raconte." },
-  { text: "Bénie soit ta lumière.", lyrics: "Qu’elle guide nos pas vers des jours encore plus beaux." }
+  { text: "Marche avec confiance, le monde est prêt à t’accueillir.", lyrics: "Même quand le ciel se voile, ta lumière sait percer les nuages. Tu portes en toi une douceur qui rassure et une force qui relève. Laisse chaque pas te rappeler que tu avances vers ce qui te ressemble, sans hâte, avec paix." },
+  { text: "Tu es capable, au-delà de tout ce que l’on imagine.", lyrics: "Les petites victoires, accumulées avec patience, deviennent des horizons magnifiques. Continue d’avancer sans te comparer: ta route est unique et belle. Chaque effort est une graine de joie que demain fera éclore." },
+  { text: "Ton courage traverse les saisons.", lyrics: "Quand les jours sont longs et les nuits silencieuses, ton cœur apprend la paix. Ce que tu as déjà surmonté prouve que tu peux encore grandir, sans te perdre, avec grâce. Tu es plus forte que ce que la vie croit." },
+  { text: "Reste confiante: demain sourit aux âmes ouvertes.", lyrics: "Chaque matin, le jour te tend une nouvelle chance. Accueille-la avec ton sourire, et laisse-la éclairer tes projets. L’espoir grandit quand on le nourrit de douceur et de patience." },
+  { text: "Ta douceur est une force discrète qui change le monde.", lyrics: "Elle répare, elle apaise, elle rassemble ceux qui doutent. C’est par elle que tu rayonnes, et c’est par elle que tes rêves trouvent la route pour te rejoindre. Ne minimise jamais ce que ton cœur sait offrir." },
+  { text: "Souris, avance, respire, recommence.", lyrics: "Le cœur qui sait aimer sait aussi se relever. Accorde-toi la tendresse dont tu offres tant aux autres: elle fera fleurir tes pas les plus hésitants. Ta lumière est une promesse pour chaque demain." },
+  { text: "Tu mérites de belles choses, et elles viennent vers toi.", lyrics: "Ne crains pas de demander plus de lumière: elle est à ta mesure. Tes efforts sont des graines; le temps les transforme en jardins où tu te reposeras. La vie aime ceux qui persistent avec amour." },
+  { text: "Ta détermination t’ouvre des portes invisibles.", lyrics: "Au fil des jours, ta constance raconte une histoire que l’on aime lire. Continue d’écrire en lettres de patience et d’amour: tes lignes deviennent des chemins. Tes rêves reconnaissent ceux qui n’abandonnent pas." },
+  { text: "Ton élégance vient de ton âme.", lyrics: "Elle se lit dans ta manière de parler, d’écouter, de relever. C’est elle qui rend les instants ordinaires précieux, et les rêves doucement possibles. Reste fidèle à ce qui t’élève, le ciel s’ouvre." },
+  { text: "Nous croyons en toi, aujourd’hui et toujours.", lyrics: "Puisses-tu accueillir ce jour comme une promesse: la promesse que la lumière te porte, que l’amour te couvre, et que ton avenir s’écrive dans la paix et la joie. Tu n’es jamais seule: nos souhaits t’accompagnent." }
 ]
 
 const track = document.getElementById("carousel-track")
@@ -75,11 +81,12 @@ const nextBtn = document.getElementById("next")
 
 let currentIndex = 0
 let autoTimer = null
+let prevIndex = 0
 
 function renderSlides() {
   track.innerHTML = carouselSlides.map(s => `
     <div class="slide">
-      <div class="slide-card glass">
+      <div class="slide-card glass romantic-glow">
         <div class="caption-card">
           <h3>${s.text}</h3>
           <p class="lyrics">${s.lyrics}</p>
@@ -99,16 +106,27 @@ function updateDots() {
 
 function goToSlide(index) {
   const max = carouselSlides.length - 1
-  currentIndex = index < 0 ? max : index > max ? 0 : index
-  const offset = -currentIndex * track.parentElement.clientWidth
-  track.style.transform = `translate3d(${offset}px,0,0)`
-  updateDots()
-  const cards = track.querySelectorAll('.slide-card')
-  cards.forEach((c, i) => {
-    if (i === currentIndex) {
-      gsap.to(c, { scale: 1, opacity: 1, boxShadow: '0 12px 32px rgba(201,167,71,0.16)', duration: 0.5, ease: 'power2.out' })
-    } else {
-      gsap.to(c, { scale: 0.98, opacity: 0.92, boxShadow: '0 6px 20px rgba(0,0,0,0.12)', duration: 0.5, ease: 'power2.out' })
+  const newIndex = index < 0 ? max : index > max ? 0 : index
+  prevIndex = currentIndex
+  gsap.killTweensOf(track)
+  gsap.to(track, {
+    opacity: 0,
+    duration: 0.18,
+    ease: 'power1.out',
+    onComplete: () => {
+      currentIndex = newIndex
+      const offset = -currentIndex * track.parentElement.clientWidth
+      track.style.transform = `translate3d(${offset}px,0,0)`
+      updateDots()
+      const cards = track.querySelectorAll('.slide-card')
+      cards.forEach((c, i) => {
+        if (i === currentIndex) {
+          gsap.to(c, { scale: 1, opacity: 1, boxShadow: '0 12px 32px rgba(201,167,71,0.16)', duration: 0.4, ease: 'power2.out' })
+        } else {
+          gsap.to(c, { scale: 0.98, opacity: 0.92, boxShadow: '0 6px 20px rgba(0,0,0,0.12)', duration: 0.4, ease: 'power2.out' })
+        }
+      })
+      gsap.to(track, { opacity: 1, duration: 0.28, ease: 'power1.out' })
     }
   })
 }
@@ -123,7 +141,7 @@ function prevSlide() {
 
 function startAuto() {
   stopAuto()
-  autoTimer = setInterval(nextSlide, 4000)
+  autoTimer = setInterval(nextSlide, 6000)
 }
 
 function stopAuto() {
@@ -147,7 +165,7 @@ dotsEl.addEventListener("click", e => {
 
 window.addEventListener("resize", () => { goToSlide(currentIndex) })
 
-const music = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
+const music = new Audio("assets/audio/romance.mp3")
 music.preload = "auto"
 music.loop = true
 music.volume = 0.6
@@ -162,10 +180,10 @@ let carouselTrigger = ScrollTrigger.create({
   trigger: "#carousel-section",
   start: "top center",
   end: "bottom center",
-  onEnter: () => tryPlayMusic(),
-  onLeave: () => music.pause(),
-  onEnterBack: () => tryPlayMusic(),
-  onLeaveBack: () => music.pause()
+  onEnter: () => { tryPlayMusic(); blowCandlesHard(); },
+  onLeave: () => { music.pause(); relightCandles(); },
+  onEnterBack: () => { tryPlayMusic(); blowCandlesHard(); },
+  onLeaveBack: () => { music.pause(); relightCandles(); }
 })
 
 document.addEventListener("visibilitychange", () => {
@@ -241,12 +259,31 @@ function confettiRain(n = 120) {
 }
 
 function blowCandles() {
+  stopFlamesFlicker()
   gsap.to(flames, { duration: 0.4, scale: 0, opacity: 0, ease: 'power1.inOut' })
   smokeGroup.setAttribute('opacity', '1')
   createSmoke(100, 58)
   createSmoke(150, 58)
   createSmoke(200, 58)
   confettiRain(160)
+}
+
+function blowCandlesHard() {
+  stopFlamesFlicker()
+  gsap.to(flames, { duration: 0.3, scale: 0, opacity: 0, ease: 'power1.inOut' })
+  smokeGroup.setAttribute('opacity', '1')
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      createSmoke(100 + rand(-6, 6), 58 + rand(-2, 2))
+      createSmoke(150 + rand(-6, 6), 58 + rand(-2, 2))
+      createSmoke(200 + rand(-6, 6), 58 + rand(-2, 2))
+    }, i * 90)
+  }
+}
+
+function relightCandles() {
+  gsap.to(flames, { duration: 0.4, scale: 1, opacity: 0.95, ease: 'power1.out' })
+  startFlamesFlicker()
 }
 
 blowBtn.addEventListener('click', blowCandles)
@@ -312,7 +349,7 @@ function buildInitialsOrbit() {
     orbit.appendChild(h)
     gsap.to(h, { y: '+=8', duration: rand(1.8, 3.2), yoyo: true, repeat: -1, ease: 'sine.inOut', delay: rand(0, 1.2) })
   }
-  gsap.to(orbit, { rotation: 360, duration: 18, repeat: -1, ease: 'linear', transformOrigin: '50% 50%' })
+  gsap.to(orbit, { rotation: 360, duration: 30, repeat: -1, ease: 'linear', transformOrigin: '50% 50%' })
 }
 
 buildInitialsOrbit()
