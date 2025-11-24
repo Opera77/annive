@@ -47,7 +47,7 @@ body {
 
 #initials-orbit { position: absolute; width: 220px; height: 220px; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1; }
 .initials-wrap { position: relative; height: 260px; display: flex; align-items: center; justify-content: center; }
-.initial-letter { font-family: "Great Vibes", cursive; font-size: 100px; background: linear-gradient(135deg, #ff9bbb, #9ad0ff); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 6px 24px rgba(201,167,71,0.12), 0 0 10px rgba(249,210,224,0.28); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; }
+.initial-letter { font-family: "Pacifico", cursive; font-size: 100px; background: linear-gradient(135deg, #ff9bbb, #9ad0ff); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 6px 24px rgba(201,167,71,0.12), 0 0 10px rgba(249,210,224,0.28); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; }
 
 #hero {
   display: flex;
